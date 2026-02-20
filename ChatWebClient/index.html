@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>xwx</title>
+        <style>
+        </style>
+    </head>
+    <script src="chat_client.js"></script>
+    <script>
+        let chat_client;
+
+        window.onload = function ()
+        {
+            let host = (window.location.protocol === 'file:') ? 'localhost' : window.location.hostname;
+
+            chat_client = new ChatClient('ws://' + host + ':12345/chat');
+        }
+    </script>
+    <body>
+        <div id="chat_log"></div>
+        <div>
+            <textarea class="chat_input" id="chat_input" style="resize:both" placeholder="按Ctrl+Enter发送" rows="4" cols="40"></textarea>
+            <button id="chat_btn_send" onclick="chat_client.SendInput();">发送</button>
+        </div>
+        <div style="font-size: 14px">连接未加密，请勿发送敏感信息。</div>
+    </body>
+</html>
