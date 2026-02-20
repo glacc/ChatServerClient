@@ -38,12 +38,12 @@ class ChatClient
 
             let dom_message_time = document.createElement('div');
             dom_message_time.style = "font-weight: bold; width: 156px; flex-shrink: 0;";
-            dom_message_time.innerHTML = time_str;
+            dom_message_time.textContent = time_str;
             dom_chat_message.append(dom_message_time);
 
             let dom_message_text = document.createElement('div');
             dom_message_text.style = "flex: 1; white-space: pre; max-width: 100%";
-            dom_message_text.innerHTML = chat_message.Text.replaceAll("\n", "<br/>");
+            dom_message_text.textContent = chat_message.Text.replaceAll("\n", "<br/>");
             dom_chat_message.append(dom_message_text);
 
             this.dom_chat_log.append(dom_chat_message);
